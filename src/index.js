@@ -54,6 +54,13 @@ function readTeam() {
   };
 }
 
+function writeTeam(team) {
+  document.getElementById("promotion").value = team.promotion;
+  document.getElementById("members").value = team.members;
+  document.getElementById("name").value = team.name;
+  document.getElementById("url").value = team.url;
+}
+
 function getTeamsHTML(teams) {
   return teams
     .map(
@@ -91,7 +98,10 @@ function onSubmit(e) {
   } else {
     createTeamRequest(team).then(status => {
       if (status.success) {
-        window.location.reload();
+        //window.location.reload();
+        allTeams.push(team);
+        displayTeams(allTeams);
+        e.target.reset();
       }
     });
   }
@@ -101,10 +111,7 @@ function prepareEdit(id) {
   const team = allTeams.find(team => team.id === id);
   editId = id;
 
-  document.getElementById("promotion").value = team.promotion;
-  document.getElementById("members").value = team.members;
-  document.getElementById("name").value = team.name;
-  document.getElementById("url").value = team.url;
+  writeTeam(team);
 }
 
 function initEvents() {
