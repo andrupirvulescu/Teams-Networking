@@ -99,6 +99,7 @@ function onSubmit(e) {
     createTeamRequest(team).then(status => {
       if (status.success) {
         //window.location.reload();
+        team.id = status.id;
         allTeams.push(team);
         displayTeams(allTeams);
         e.target.reset();
