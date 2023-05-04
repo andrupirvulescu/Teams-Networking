@@ -9,6 +9,10 @@
   </head>
   <body>
     <form id="editForm" action="" method="post">
+      <div style="padding: 5px 0">
+        <input type="search" name="search" id="search" placeholder="search" />
+      </div>
+
       <table border="1" id="teams">
         <thead>
           <tr>
@@ -26,7 +30,7 @@
               <input type="text" placeholder="Enter Group" name="promotion" id="promotion" required />
             </td>
             <td>
-              <input type="text" placeholder="Enter Members" name="members" id="promotion" required />
+              <input type="text" placeholder="Enter Members" name="members" id="members" required />
             </td>
             <td>
               <input type="text" placeholder="Enter Project Name" name="name" id="name" required />
@@ -35,7 +39,8 @@
               <input type="text" placeholder=" Project URL" name="url" id="url" required />
             </td>
             <td>
-              <button type="submit">💾</button>
+              <button type="submit" title="Save">💾</button>
+              <button type="reset" title="Cancel">✖</button>
             </td>
           </tr>
         </tfoot>
